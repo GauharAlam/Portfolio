@@ -758,15 +758,51 @@ footer a:hover {
     display: none;
    }
 
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
+   .hero {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
 
-    .hero-image {
-        max-width: 100%;
-    }
+.hero-content {
+    padding: 10px;
+    animation: none; /* Optional: To disable animations for mobile */
+}
+
+.hero-content h1 {
+    font-size: 30px;
+}
+
+.hero-content h2 {
+    font-size: 24px;
+}
+
+.hero-content p {
+    font-size: 16px;
+}
+
+.buttons .btn {
+    font-size: 14px;
+    padding: 8px 15px;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+}
+.hero-image img{
+
+    width: 300px;
+    height: auto;
+}
+
+.social-icons1 {
+    position: static;
+    margin-top: 15px;
+    gap: 10px;
+    font-size: 30px;
+}
 
     .skills ul {
         flex-direction: column;
@@ -895,5 +931,44 @@ footer a:hover {
     .projects h2, .blog h2, .testimonials h2, .certifications h2, .contact h2 {
         font-size: 26px;
     }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .hero-content {
+        padding: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-image {
+        max-width: 50%;
+        margin: 20px auto;
+    }
+
+    .social-icons1 {
+        position: static;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .buttons .btn {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
 }
+
 
