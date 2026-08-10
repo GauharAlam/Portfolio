@@ -7,7 +7,7 @@ import {
   Send, Key
 } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
-import { skillsGrouped } from '../../data/portfolioData';
+import { skillsGrouped, personalDetails } from '../../data/portfolioData';
 
 const iconMap = {
   Code2, Terminal, Cpu, FileCode, Atom, Layers, FileJson, Palette, Layout, Globe,
