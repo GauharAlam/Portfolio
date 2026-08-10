@@ -40,7 +40,19 @@ export const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      let data = {};
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.warn('Received non-JSON response from /api/contact:', text);
+        if (response.ok) {
+          data = { message: 'Message received successfully!' };
+        } else {
+          throw new Error('Backend server is offline or returned an invalid response. Please email directly at gauhar54995@gmail.com.');
+        }
+      }
 
       if (response.ok) {
         setToast({
