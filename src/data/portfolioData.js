@@ -10,7 +10,7 @@ export const personalDetails = {
   gfg: "https://www.geeksforgeeks.org/profile/gauhar8lyu?tab=activity",
   twitter: "https://x.com/NawazCodex",
   location: "Delhi, India",
-  resumeUrl: "#", // Replace with real PDF URL when available
+  resumeUrl: "https://drive.google.com/file/d/1mhhfomsWvGaRbqOiIGF0PiDDDYYFydpz/view?usp=drive_link",
 };
 
 export const statsData = [
