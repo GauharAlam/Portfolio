@@ -151,7 +151,7 @@ export const projectsData = [
     id: "qaleenkaar",
     title: "Qaleenkaar (Loom Tales)",
     subtitle: "Carpet & Shawl Care Brand Platform",
-    featured: false,
+    featured: true,
     tags: ["MERN Stack", "React.js", "Express.js", "MongoDB", "Tailwind CSS", "Vercel"],
     accentColor: "from-purple-500 to-pink-500",
     badge: "Client Production App",
@@ -162,7 +162,7 @@ export const projectsData = [
       "Delivered independently end-to-end for the client and deployed to production on Vercel."
     ],
     github: "https://github.com/GauharAlam/qaleenkaar",
-    live: "https://qaleenkaar.com",
+    live: "https://qaleenkaar-4ack.vercel.app/",
     metrics: "End-to-End Client Delivery"
   }
 ];
@@ -185,11 +185,11 @@ export const experienceData = [
     company: "Self-Employed",
     period: "Mar 2025 – May 2025",
     type: "Freelance",
-    description: "Delivered full-stack web applications for independent clients from initial design to production deployment.",
+    description: "Built and delivered production web applications independently for private clients from concept to Vercel deployment.",
     achievements: [
-      "Built Qaleenkaar (Loom Tales) platform from scratch using MERN stack.",
-      "Designed mobile-responsive UI/UX and integrated Express/MongoDB enquiry booking endpoints.",
-      "Deployed application to Vercel with SEO optimizations and fast performance scores."
+      "Architected & deployed Qaleenkaar (Loom Tales) — a luxury carpet & shawl care client platform (https://qaleenkaar-4ack.vercel.app/).",
+      "Designed mobile-first React UI/UX, service showcases, and automated Express/MongoDB customer booking APIs.",
+      "Engineered SEO optimizations and production deployment pipeline on Vercel with fast performance scores."
     ]
   }
 ];
