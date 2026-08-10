@@ -43,11 +43,11 @@ npm run server
 ```
 
 ### 3. Contact Form Setup (Optional)
-To send live emails to `gauharalam1377@gmail.com`:
+To send live emails to `gauhar54995@gmail.com`:
 1. Create a `.env` file in the project root or `server/` directory:
    ```env
-   PORT=5000
-   EMAIL_USER=gauharalam1377@gmail.com
+   PORT=5001
+   EMAIL_USER=gauhar54995@gmail.com
    EMAIL_PASS=your_gmail_app_password
    ```
 2. If `EMAIL_PASS` is omitted, the server will safely run in mock development mode and log submissions to the console.

@@ -42,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
 
       const mailOptions = {
         from: `"${name}" <${email}>`,
-        to: 'gauharalam1377@gmail.com',
+        to: 'gauhar54995@gmail.com',
         subject: `[Portfolio Contact] ${subject || 'New Message from ' + name}`,
         text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         html: `

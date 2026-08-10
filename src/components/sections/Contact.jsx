@@ -55,7 +55,7 @@ export const Contact = () => {
     } catch (err) {
       setToast({
         isVisible: true,
-        message: err.message || 'Something went wrong. Please email directly at gauharalam1377@gmail.com.',
+        message: err.message || 'Something went wrong. Please email directly at gauhar54995@gmail.com.',
         type: 'error',
       });
     } finally {

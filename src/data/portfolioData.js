@@ -2,7 +2,7 @@ export const personalDetails = {
   name: "Gauhar Alam",
   roles: ["Full Stack Developer", "SaaS Builder", "GenAI Engineer"],
   oneLiner: "B.Tech CS student and full-stack developer building production-grade apps — from multi-tenant SaaS platforms to AI-powered coding tools.",
-  email: "gauharalam1377@gmail.com",
+  email: "gauhar54995@gmail.com",
   phone: "+91 8409153351",
   github: "https://github.com/GauharAlam",
   linkedin: "https://www.linkedin.com/in/gauhar-alam/",
