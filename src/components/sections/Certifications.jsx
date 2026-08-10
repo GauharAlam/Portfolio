@@ -18,18 +18,19 @@ export const Certifications = () => {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-widest mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" /> Recognition
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
             className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight"
           >
             Accomplishments & <span className="text-gradient">Certifications</span>
@@ -46,9 +47,9 @@ export const Certifications = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.15 }}
               >
-                <GlassCard className="h-full flex flex-col justify-between p-8 border-slate-800/80 hover:border-amber-500/40">
+                <GlassCard className="h-full flex flex-col justify-between p-8 border-slate-800/80 hover:border-amber-500/40" spotlight={true}>
                   <div>
                     <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6">
                       <Icon className="w-6 h-6" />

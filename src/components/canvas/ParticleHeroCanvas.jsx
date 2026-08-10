@@ -9,6 +9,7 @@ export const ParticleHeroCanvas = () => {
 
     const ctx = canvas.getContext('2d');
     let animationFrameId;
+    let isVisible = true;
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -19,6 +20,19 @@ export const ParticleHeroCanvas = () => {
     };
 
     window.addEventListener('resize', handleResize);
+
+    // Performance Optimization: Pause particle render loop when scrolled past Hero section
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animationFrameId) {
+          render();
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(canvas);
 
     const mouse = {
       x: width / 2,
@@ -53,6 +67,11 @@ export const ParticleHeroCanvas = () => {
     }
 
     const render = () => {
+      if (!isVisible) {
+        animationFrameId = null;
+        return;
+      }
+
       // Smooth mouse interpolation
       mouse.x += (mouse.targetX - mouse.x) * 0.05;
       mouse.y += (mouse.targetY - mouse.y) * 0.05;
@@ -138,7 +157,8 @@ export const ParticleHeroCanvas = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

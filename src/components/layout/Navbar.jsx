@@ -1,34 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, FileText, Sparkles } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import { personalDetails } from '../../data/portfolioData';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'Projects', href: '#projects', id: 'projects' },
+    { name: 'Experience', href: '#experience', id: 'experience' },
+    { name: 'Certifications', href: '#certifications', id: 'certifications' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
+  // Scroll spy using IntersectionObserver
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    navLinks.forEach((link) => {
+      const section = document.getElementById(link.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'py-3 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-slate-800/80 shadow-lg shadow-black/40'
+          ? 'py-3 bg-[#0a0a0f]/85 backdrop-blur-xl border-b border-slate-800/80 shadow-lg shadow-black/50'
           : 'py-5 bg-transparent'
       }`}
     >
@@ -45,17 +70,29 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-md">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition-all duration-200"
-            >
-              {link.name}
-            </a>
-          ))}
+        {/* Desktop Navigation Links with Sliding Active Indicator */}
+        <nav className="hidden md:flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-full border border-slate-800/90 backdrop-blur-md relative">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                  isActive ? 'text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavTab"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full -z-10 shadow-md shadow-blue-500/20"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {link.name}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Action Button */}
@@ -64,7 +101,7 @@ export const Navbar = () => {
             href={personalDetails.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-300 bg-slate-800/80 hover:bg-slate-700 border border-slate-700/80 hover:border-cyan-500/50 rounded-full transition-all duration-300"
+            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-300 bg-slate-800/80 hover:bg-slate-700 border border-slate-700/80 hover:border-cyan-500/50 rounded-full transition-all duration-300 shadow-sm"
           >
             <FileText className="w-3.5 h-3.5 text-cyan-400" />
             Resume
@@ -96,7 +133,9 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-slate-200 hover:text-cyan-400 py-1 transition-colors"
+                  className={`text-base font-medium py-1 transition-colors ${
+                    activeSection === link.id ? 'text-cyan-400 font-bold' : 'text-slate-300 hover:text-white'
+                  }`}
                 >
                   {link.name}
                 </a>

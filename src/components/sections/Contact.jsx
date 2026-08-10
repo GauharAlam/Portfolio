@@ -89,27 +89,28 @@ export const Contact = () => {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" /> Get in Touch
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
             className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight"
           >
             Let's Build Something <span className="text-gradient">Extraordinary</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
             className="text-slate-400 max-w-xl mt-3 text-sm sm:text-base"
           >
             Whether you have a product idea, job opportunity, or client project — my inbox is always open.

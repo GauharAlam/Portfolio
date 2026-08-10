@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Sparkles, CheckCircle2, Zap } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, CheckCircle2, Zap, LayoutGrid } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 import { projectsData } from '../../data/portfolioData';
+import { WappifyArchitectureDiagram } from '../ui/WappifyArchitectureDiagram';
+import { ScrambleText } from '../ui/ScrambleText';
 
 export const Projects = () => {
   return (
@@ -12,152 +14,237 @@ export const Projects = () => {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5" /> Featured Work
+            <LayoutGrid className="w-3.5 h-3.5" /> Interactive Bento Showcase
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
             className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight"
           >
-            Production Projects & <span className="text-gradient">Platforms</span>
+            Featured <ScrambleText text="Engineering Projects" className="text-gradient" />
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
             className="text-slate-400 max-w-xl mt-3 text-sm sm:text-base"
           >
-            Multi-tenant SaaS products, AI-driven developer platforms, and full-stack client web applications.
+            Click on any screenshot or live button to launch the full interactive production applications.
           </motion.p>
         </div>
 
-        {/* Project Cards Stack */}
-        <div className="space-y-12">
-          {projectsData.map((project, index) => (
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Card 1: Wappify (Full Width 12-col Bento Card) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="lg:col-span-12"
+          >
+            <GlassCard className="p-8 sm:p-10 border border-emerald-500/30 hover:border-emerald-400/60 group" spotlight={true}>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Left Content */}
+                <div className="lg:col-span-7">
+                  <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                      {projectsData[0].badge}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
+                      <Zap className="w-3.5 h-3.5 text-amber-400" /> {projectsData[0].metrics}
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                    {projectsData[0].title}
+                  </h3>
+                  <p className="text-sm font-medium text-slate-400 mb-4">{projectsData[0].subtitle}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-4">{projectsData[0].description}</p>
+
+                  {/* Architecture Flow Diagram */}
+                  <WappifyArchitectureDiagram />
+
+                  <div className="flex flex-wrap gap-2 my-4">
+                    {projectsData[0].tags.map((tag) => (
+                      <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-4 pt-2">
+                    <a
+                      href={projectsData[0].live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-white bg-gradient-to-r from-emerald-600 to-cyan-600 hover:brightness-110 px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all hover:scale-105"
+                    >
+                      <ExternalLink className="w-4 h-4" /> Live Demo
+                    </a>
+                    <a
+                      href={projectsData[0].github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                    >
+                      <Github className="w-4 h-4" /> GitHub Repo
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Interactive Live Screenshot Mockup */}
+                <div className="lg:col-span-5 relative">
+                  <a
+                    href={projectsData[0].live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full rounded-2xl bg-slate-900 border border-slate-700/60 overflow-hidden shadow-2xl relative group/image hover:border-emerald-400/80 transition-all duration-300"
+                  >
+                    {/* Browser Bar */}
+                    <div className="flex items-center justify-between bg-slate-950 px-4 py-2.5 border-b border-slate-800">
+                      <div className="flex gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1 truncate max-w-[200px]">
+                        {projectsData[0].live} <ExternalLink className="w-3 h-3 text-emerald-400" />
+                      </span>
+                    </div>
+
+                    {/* Image Container with Hover Zoom Overlay */}
+                    <div className="relative overflow-hidden aspect-[16/10] bg-slate-950">
+                      <img
+                        src={projectsData[0].image}
+                        alt={projectsData[0].title}
+                        className="w-full h-full object-cover object-top group-hover/image:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-xs">
+                        <span className="px-4 py-2 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-xl">
+                          Launch Live Demo <ExternalLink className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </GlassCard>
+          </motion.div>
+
+          {/* Remaining Bento Grid Items */}
+          {projectsData.slice(1).map((project, idx) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.15 }}
+              className="lg:col-span-6 flex flex-col"
             >
-              <GlassCard className="p-8 sm:p-10 border border-slate-800/80 hover:border-cyan-500/40 group">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Left Text Column */}
-                  <div className="lg:col-span-7 flex flex-col justify-between">
-                    <div>
-                      {/* Badge & Metrics */}
-                      <div className="flex items-center gap-3 mb-4 flex-wrap">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/20 text-cyan-400 border border-blue-500/30">
-                          {project.badge}
-                        </span>
-                        <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
-                          <Zap className="w-3.5 h-3.5 text-amber-400" /> {project.metrics}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm font-medium text-slate-400 mb-4">{project.subtitle}</p>
-
-                      <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                        {project.description}
-                      </p>
-
-                      {/* Key Highlights Bullet points */}
-                      <div className="space-y-2.5 mb-6">
-                        {project.highlights.map((highlight, hIdx) => (
-                          <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                            <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                            <span>{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Tech Tags */}
-                    <div className="pt-6 border-t border-slate-800/80">
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Action Links */}
-                      <div className="flex items-center gap-4">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 px-4 py-2.5 rounded-xl transition-all"
-                        >
-                          <Github className="w-4 h-4" /> Source Code
-                        </a>
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 px-4 py-2.5 rounded-xl shadow-lg shadow-blue-500/20 transition-all"
-                        >
-                          <ExternalLink className="w-4 h-4" /> Live Demo
-                        </a>
-                      </div>
-                    </div>
-
+              <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between border border-slate-800/80 hover:border-cyan-500/40 group" spotlight={true}>
+                <div>
+                  <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/20 text-cyan-400 border border-blue-500/30">
+                      {project.badge}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
+                      <Zap className="w-3.5 h-3.5 text-amber-400" /> {project.metrics}
+                    </span>
                   </div>
 
-                  {/* Right Graphic Mockup Column */}
-                  <div className="lg:col-span-5 relative">
-                    <div className="w-full h-72 sm:h-80 rounded-2xl bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-900 p-6 border border-slate-700/50 flex flex-col justify-between overflow-hidden shadow-2xl relative group-hover:scale-[1.02] transition-transform duration-500">
-                      
-                      {/* Decorative Mockup Browser Bar */}
-                      <div className="flex items-center justify-between border-b border-slate-700/60 pb-3 mb-4">
-                        <div className="flex gap-1.5">
-                          <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                          <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                          <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                          {project.id}.app
+                  <h3 className="text-2xl font-display font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs font-medium text-slate-400 mb-4">{project.subtitle}</p>
+
+                  {/* Interactive Screenshot Image Link */}
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full rounded-xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl mb-6 relative group/subimage hover:border-cyan-400/80 transition-all duration-300"
+                  >
+                    <div className="flex items-center justify-between bg-slate-950 px-3 py-2 border-b border-slate-800">
+                      <div className="flex gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-rose-500/80" />
+                        <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1 truncate max-w-[180px]">
+                        {project.live} <ExternalLink className="w-2.5 h-2.5 text-cyan-400" />
+                      </span>
+                    </div>
+                    <div className="relative overflow-hidden aspect-[16/9] bg-slate-950">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top group-hover/subimage:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/subimage:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-xs">
+                        <span className="px-3.5 py-1.5 rounded-full bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
+                          Open Live Site <ExternalLink className="w-3.5 h-3.5" />
                         </span>
                       </div>
-
-                      {/* Mockup Central Visual */}
-                      <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-tr ${project.accentColor} p-0.5 mb-3 shadow-xl`}>
-                          <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-white font-display font-bold text-2xl">
-                            {project.title.charAt(0)}
-                          </div>
-                        </div>
-                        <h4 className="font-display font-semibold text-white text-lg">{project.title}</h4>
-                        <p className="text-xs text-slate-400 mt-1">{project.metrics}</p>
-                      </div>
-
-                      {/* Bottom glowing line */}
-                      <div className={`h-1 w-full bg-gradient-to-r ${project.accentColor} rounded-full mt-4`} />
                     </div>
+                  </a>
+
+                  <p className="text-slate-300 text-sm leading-relaxed mb-4">{project.description}</p>
+
+                  <div className="space-y-2 mb-6">
+                    {project.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2.5 text-xs text-slate-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
+                  <div className="flex items-center gap-4 flex-wrap pt-4 border-t border-slate-800/80">
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:brightness-110 px-4 py-2.5 rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:scale-105"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" /> Live Demo
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-700 px-4 py-2.5 rounded-xl transition-all hover:scale-105"
+                    >
+                      <Github className="w-3.5 h-3.5" /> GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </GlassCard>
             </motion.div>
           ))}
+
         </div>
 
       </div>

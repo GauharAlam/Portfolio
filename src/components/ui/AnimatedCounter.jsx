@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-export const AnimatedCounter = ({ value, suffix = '', duration = 2000 }) => {
+export const AnimatedCounter = ({ value, suffix = '', duration = 1500 }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -12,7 +12,7 @@ export const AnimatedCounter = ({ value, suffix = '', duration = 2000 }) => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -22,18 +22,24 @@ export const AnimatedCounter = ({ value, suffix = '', duration = 2000 }) => {
   useEffect(() => {
     if (!isVisible) return;
 
-    let start = 0;
-    const end = parseInt(value, 10);
-    if (start === end) return;
+    let startTimestamp = null;
+    const endValue = parseInt(value, 10) || 0;
 
-    const incrementTime = (duration / end);
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= end) clearInterval(timer);
-    }, Math.max(incrementTime, 30));
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // Ease out cubic function
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeProgress * endValue));
 
-    return () => clearInterval(timer);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        setCount(endValue);
+      }
+    };
+
+    window.requestAnimationFrame(step);
   }, [isVisible, value, duration]);
 
   return (

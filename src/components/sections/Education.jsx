@@ -12,18 +12,19 @@ export const Education = () => {
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" /> Academic Background
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
             className="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight"
           >
             Education & <span className="text-gradient">Qualifications</span>
@@ -38,9 +39,9 @@ export const Education = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.15 }}
             >
-              <GlassCard className="h-full p-8 border-slate-800/80 hover:border-cyan-500/40 flex flex-col justify-between">
+              <GlassCard className="h-full p-8 border-slate-800/80 hover:border-cyan-500/40 flex flex-col justify-between" spotlight={true}>
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <div className="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-cyan-400">
