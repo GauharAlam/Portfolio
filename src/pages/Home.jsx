@@ -19,7 +19,7 @@ export default function Home() {
 
         <FadeUp delay={0.2}>
           <p className="font-body text-base md:text-lg text-muted max-w-xl leading-relaxed">
-            B.Tech CS student and full-stack developer building production-grade apps — from multi-tenant SaaS platforms to AI-powered coding tools.
+            B.Tech Computer Science and Engineering graduate (with minor specialization in AI/ML) building production-grade apps — from multi-tenant SaaS platforms to AI-powered coding tools.
           </p>
         </FadeUp>
 

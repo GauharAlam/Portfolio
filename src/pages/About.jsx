@@ -40,10 +40,7 @@ export default function About() {
       <FadeUp delay={0.1}>
         <section className="mb-12">
           <p className="text-lg text-muted max-w-3xl leading-relaxed font-body mb-6">
-            I am a B.Tech Computer Science Engineering student at Guru Tegh Bahadur Institute of
-            Technology, Delhi (2022–2026). My core passion lies in building scalable,
-            production-grade applications that combine clean full-stack architecture with modern LLM
-            & Generative AI integrations.
+            I am a B.Tech Computer Science and Engineering graduate with a minor specialization in AI/ML from Guru Tegh Bahadur Institute of Technology, Delhi. My core passion lies in building scalable, production-grade applications that combine clean full-stack architecture with modern LLM & Generative AI integrations.
           </p>
           <p className="text-base text-muted max-w-3xl leading-relaxed font-body">
             A relentless problem solver at heart, I bring high engineering ownership, analytical rigor, and clean architectural principles to every product I build. Having solved over <strong className="text-fg font-semibold">250+ Data Structures & Algorithmic problems</strong> across LeetCode and GeeksforGeeks, I excel at writing optimal, production-ready code with a deep focus on computational efficiency and scalability.
