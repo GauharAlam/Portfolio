@@ -1,67 +1,16 @@
-# Gauhar Alam — Personal Portfolio Website
+# React + Vite
 
-Modern, highly animated personal portfolio website built with **React 18**, **Vite**, **Tailwind CSS**, **Framer Motion**, **Three.js Canvas**, and an **Express Node.js backend** for contact form dispatches.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
----
+Currently, two official plugins are available:
 
-## 🚀 Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-- **Dark-Mode-First Aesthetics**: Deep charcoal `#0a0a0f` canvas with glowing electric blue / cyan / violet gradients.
-- **Interactive 3D Particle Hero Canvas**: Real-time particle constellation with smooth cursor tracking and node physics.
-- **Micro-Interactions**: Magnetic buttons, glowing cursor follow effect, animated stat counters, text scramble role switcher, and glassmorphic panels.
-- **Featured Project Cards**: Comprehensive showcases for **Wappify** (Multi-tenant WhatsApp SaaS), **AlgoForge** (AI Coding Platform), and **Qaleenkaar** (Luxury Carpet Care).
-- **Express Contact Backend**: REST API `/api/contact` connected with Nodemailer and fallback development logging.
-- **Responsive & Accessible**: Mobile-first layout with smooth navigation drawer and keyboard navigation support.
+## React Compiler
 
----
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 📦 Tech Stack
+## Expanding the Oxlint configuration
 
-- **Frontend:** React 18, Vite, Tailwind CSS, Framer Motion, Three.js / Canvas, Lucide React
-- **Backend:** Node.js, Express, Nodemailer, CORS
-- **Deployment:** Vercel (Frontend), Render / Railway (Backend)
-
----
-
-## 🛠️ Local Setup & Running
-
-### 1. Install Dependencies
-```bash
-npm install
-```
-
-### 2. Start Frontend & Backend Development Servers
-```bash
-# Start both Vite (Port 3000) & Express (Port 5000)
-npm run dev:all
-
-# Or run frontend only
-npm run dev
-
-# Or run backend only
-npm run server
-```
-
-### 3. Contact Form Setup (Optional)
-To send live emails to `gauhar54995@gmail.com`:
-1. Create a `.env` file in the project root or `server/` directory:
-   ```env
-   PORT=5001
-   EMAIL_USER=gauhar54995@gmail.com
-   EMAIL_PASS=your_gmail_app_password
-   ```
-2. If `EMAIL_PASS` is omitted, the server will safely run in mock development mode and log submissions to the console.
-
----
-
-## 🚀 Deployment Instructions
-
-### Vercel (Frontend)
-1. Push repository to GitHub.
-2. Import project into Vercel dashboard.
-3. Build command: `npm run build`
-4. Output directory: `dist`
-
-### Render / Railway (Backend Server)
-1. Deploy `server/index.js`.
-2. Add Environment Variables (`EMAIL_USER`, `EMAIL_PASS`, `PORT`).
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
