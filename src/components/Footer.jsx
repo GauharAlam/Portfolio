@@ -6,13 +6,34 @@ export default function Footer() {
           © {new Date().getFullYear()} Gauhar Alam. All rights reserved.
         </p>
         <div className="flex items-center gap-6">
-          <a href="https://github.com/GauharAlam" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-fg font-body link-underline transition-colors">
+          <a
+            href="https://github.com/GauharAlam"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/gauhar-alam/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-fg font-body link-underline transition-colors">
+          <a
+            href="https://www.linkedin.com/in/gauhar-alam/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
             LinkedIn
           </a>
-          <a href="mailto:gauhar54995@gmail.com" className="text-sm text-muted hover:text-fg font-body link-underline transition-colors">
+          <a
+            href="https://x.com/NawazCodex"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
+            X (Twitter)
+          </a>
+          <a
+            href="mailto:gauhar54995@gmail.com"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
             Email
           </a>
         </div>
