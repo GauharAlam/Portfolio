@@ -5,7 +5,7 @@ export default function Footer() {
         <p className="text-sm text-muted font-body">
           © {new Date().getFullYear()} Gauhar Alam. All rights reserved.
         </p>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-6">
           <a
             href="https://github.com/GauharAlam"
             target="_blank"
@@ -21,6 +21,22 @@ export default function Footer() {
             className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
           >
             LinkedIn
+          </a>
+          <a
+            href="https://leetcode.com/u/GauharAlam1377/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
+            LeetCode
+          </a>
+          <a
+            href="https://www.geeksforgeeks.org/profile/gauhar8lyu?tab=activity"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-fg font-body link-underline transition-colors"
+          >
+            GeeksforGeeks
           </a>
           <a
             href="https://x.com/NawazCodex"

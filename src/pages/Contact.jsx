@@ -115,6 +115,32 @@ export default function Contact() {
               </div>
               <div>
                 <span className="text-xs text-muted font-body uppercase tracking-[0.15em] block mb-1">
+                  LeetCode
+                </span>
+                <a
+                  href="https://leetcode.com/u/GauharAlam1377/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-fg text-sm font-body"
+                >
+                  leetcode.com/u/GauharAlam1377
+                </a>
+              </div>
+              <div>
+                <span className="text-xs text-muted font-body uppercase tracking-[0.15em] block mb-1">
+                  GeeksforGeeks
+                </span>
+                <a
+                  href="https://www.geeksforgeeks.org/profile/gauhar8lyu?tab=activity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-fg text-sm font-body"
+                >
+                  geeksforgeeks.org/profile/gauhar8lyu
+                </a>
+              </div>
+              <div>
+                <span className="text-xs text-muted font-body uppercase tracking-[0.15em] block mb-1">
                   X (Twitter)
                 </span>
                 <a

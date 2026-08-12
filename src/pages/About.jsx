@@ -36,29 +36,32 @@ export default function About() {
         </h1>
       </FadeUp>
 
+      {/* Main Bio */}
       <FadeUp delay={0.1}>
-        <section className="mb-16">
-          <p className="text-lg text-muted max-w-3xl leading-relaxed font-body">
+        <section className="mb-12">
+          <p className="text-lg text-muted max-w-3xl leading-relaxed font-body mb-6">
             I am a B.Tech Computer Science Engineering student at Guru Tegh Bahadur Institute of
             Technology, Delhi (2022–2026). My core passion lies in building scalable,
             production-grade applications that combine clean full-stack architecture with modern LLM
-            & Generative AI integrations. From architecting async webhook queues for high-volume
-            WhatsApp SaaS to engineering browser-based code execution platforms with AI code review
-            agents, I bring high ownership and technical rigor.
+            & Generative AI integrations.
+          </p>
+          <p className="text-base text-muted max-w-3xl leading-relaxed font-body">
+            A relentless problem solver at heart, I bring high engineering ownership, analytical rigor, and clean architectural principles to every product I build. Having solved over <strong className="text-fg font-semibold">250+ Data Structures & Algorithmic problems</strong> across LeetCode and GeeksforGeeks, I excel at writing optimal, production-ready code with a deep focus on computational efficiency and scalability.
           </p>
         </section>
       </FadeUp>
 
+      {/* Key Highlights */}
       <FadeUp delay={0.15}>
         <section className="mb-16">
-          <div className="flex flex-wrap gap-x-12 gap-y-2 text-sm text-muted font-body">
+          <div className="flex flex-wrap gap-x-12 gap-y-3 text-sm text-muted font-body">
+            <span>250+ Algorithmic Problems Solved (LeetCode & GFG)</span>
+            <span>·</span>
             <span>Expertise in MERN stack, Next.js 15, PostgreSQL & MongoDB</span>
             <span>·</span>
-            <span>Hands-on with GenAI/LLM orchestration (LangChain, OpenAI/Anthropic APIs, RAG)</span>
+            <span>GenAI & LLM Orchestration (LangChain, OpenAI, RAG)</span>
             <span>·</span>
-            <span>Strong foundation in DSA and System Design</span>
-            <span>·</span>
-            <span>Proven track record delivering end-to-end client applications to production</span>
+            <span>End-to-End Client Delivery to Production</span>
           </div>
         </section>
       </FadeUp>
@@ -67,7 +70,62 @@ export default function About() {
         <hr className="hairline my-16" />
       </FadeUp>
 
+      {/* Problem Solving & Competitive Profiles */}
+      <FadeUp delay={0.22}>
+        <section className="mb-16">
+          <h2 className="font-heading text-2xl font-bold mb-4">Competitive Coding & Profiles</h2>
+          <p className="text-sm text-muted font-body mb-8 max-w-2xl leading-relaxed">
+            Consistently sharpening core Computer Science fundamentals, algorithmic thinking, and dynamic programming techniques across competitive coding platforms.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* LeetCode Card */}
+            <div className="border border-border-subtle p-6 transition-colors hover:border-fg">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-heading text-lg font-bold">LeetCode</h3>
+                <span className="text-xs font-body text-muted uppercase tracking-widest">250+ Solved</span>
+              </div>
+              <p className="text-xs text-muted font-body mb-6 leading-relaxed">
+                Active problem solver practicing Data Structures, Dynamic Programming, and Graph algorithms.
+              </p>
+              <a
+                href="https://leetcode.com/u/GauharAlam1377/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-fg text-xs font-body tracking-wider uppercase"
+              >
+                View LeetCode Profile →
+              </a>
+            </div>
+
+            {/* GeeksforGeeks Card */}
+            <div className="border border-border-subtle p-6 transition-colors hover:border-fg">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-heading text-lg font-bold">GeeksforGeeks</h3>
+                <span className="text-xs font-body text-muted uppercase tracking-widest">Activity & Practice</span>
+              </div>
+              <p className="text-xs text-muted font-body mb-6 leading-relaxed">
+                Continuous DSA practice covering foundational algorithms, C++ STL, and time complexity optimizations.
+              </p>
+              <a
+                href="https://www.geeksforgeeks.org/profile/gauhar8lyu?tab=activity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-fg text-xs font-body tracking-wider uppercase"
+              >
+                View GFG Profile →
+              </a>
+            </div>
+          </div>
+        </section>
+      </FadeUp>
+
       <FadeUp delay={0.25}>
+        <hr className="hairline my-16" />
+      </FadeUp>
+
+      {/* Skills */}
+      <FadeUp delay={0.28}>
         <section>
           <h2 className="font-heading text-2xl font-bold mb-12">Skills & Technologies</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -93,6 +151,7 @@ export default function About() {
         <hr className="hairline my-16" />
       </FadeUp>
 
+      {/* Experience */}
       <FadeUp delay={0.35}>
         <section>
           <h2 className="font-heading text-2xl font-bold mb-8">Experience</h2>
