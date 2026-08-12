@@ -32,6 +32,21 @@ export const projects = [
     live: 'https://algosforge.netlify.app/',
   },
   {
+    id: 'resume-builder',
+    title: 'AI Resume Builder',
+    subtitle: 'ATS-Friendly Resume Creator for Tech Professionals',
+    description:
+      'AI-assisted resume generator producing ATS-compliant resumes tailored for software engineers and IT professionals with live formatting preview.',
+    highlights: [
+      'Interactive editor featuring real-time formatting preview and ATS section optimization.',
+      'AI-powered summary & experience enhancer tailored for specific job descriptions.',
+      'Instant vector PDF export via jsPDF & HTML2Canvas with custom typography templates.',
+    ],
+    tech: ['React.js', 'Tailwind CSS', 'Quill.js', 'jsPDF', 'HTML2Canvas', 'AI Assistant'],
+    github: 'https://github.com/GauharAlam',
+    live: 'https://resume-buildersss.netlify.app/',
+  },
+  {
     id: 'qaleenkaar',
     title: 'Qaleenkaar (Loom Tales)',
     subtitle: 'Carpet & Shawl Care Brand Platform',
